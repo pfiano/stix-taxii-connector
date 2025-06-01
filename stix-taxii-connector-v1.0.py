@@ -24,12 +24,23 @@ from cabby.exceptions import (
     AmbiguousServicesError, NoURIProvidedError
 )
 
-CONFIG_FILE = "configuration.cfg"
+
+
+# Dynamically resolve the absolute path to configuration.cfg located in the same folder as the script
+CONFIG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "configuration.cfg")
 
 # Use OrderedDict and preserve case for keys
 config = configparser.ConfigParser(dict_type=collections.OrderedDict)
 config.optionxform = str
 config.read(CONFIG_FILE)
+
+
+# CONFIG_FILE = "configuration.cfg"
+
+# # Use OrderedDict and preserve case for keys
+# config = configparser.ConfigParser(dict_type=collections.OrderedDict)
+# config.optionxform = str
+# config.read(CONFIG_FILE)
 
 USERNAME = config["otx"]["username"]
 PASSWORD = config["otx"]["password"]
