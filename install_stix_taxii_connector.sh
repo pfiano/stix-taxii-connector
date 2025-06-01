@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+
 # Update and install dependencies
 sudo apt update
 sudo apt install -y python3.8 python3.8-venv python3.8-dev
